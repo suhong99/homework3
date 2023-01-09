@@ -12,15 +12,9 @@ function Write() {
     setRecords(data);
   };
   const onSubmitHandler = async (record) => {
-    console.log(record);
-    console.log("record");
     const { data } = await axios.post("http://localhost:3001/records", record);
-    console.log(data);
-    console.log("data");
-    console.log("records");
-    console.log(records);
-    //성공을 했을 때 response.data로 날라옴.. 리스폰스안의 데이터만 가져오겠다. 안 쓰면 response.data로 들어옴
-    setRecords([...records, data]);
+
+    setRecords([...records, data]); //값을 set에 저장해야지 보낼 수 있음
   };
 
   useEffect(() => {
@@ -34,7 +28,6 @@ function Write() {
       }}
     >
       <div>
-        {" "}
         <h2>작성자</h2>
         <input
           type="text"
