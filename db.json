@@ -1,19 +1,28 @@
 {
-  "posts": [
+  "records": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "title": "dd",
+      "content": "dd",
+      "writer": "dd",
+      "id": 2
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "dd",
+      "content": "dd",
+      "writer": "dd",
+      "id": 3
+    },
+    {
+      "title": "dd",
+      "content": "dd",
+      "writer": "dd",
+      "id": 4
+    },
+    {
+      "title": "dd",
+      "content": "dd",
+      "writer": "dd",
+      "id": 5
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

@@ -19,7 +19,7 @@ const HeaderStyles = styled.div`
 const LayoutStyles = styled.div`
   display: flex;
   align-items: center;
-  color: white;
+  color: black;
   flex-direction: column;
   justify-content: center;
 `;
