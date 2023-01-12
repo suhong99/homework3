@@ -33,8 +33,8 @@ export const __getRecords = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_RECORDS}`); //
-      console.log(data);
-      console.log("getRecords부분");
+      // console.log(data);
+      // console.log("getRecords부분");
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.code);
@@ -96,7 +96,7 @@ export const recordsSlice = createSlice({
       state.isLoading = true; // 네트워크 요청이 시작되면 로딩상태를 true로 변경합니다.
     },
     [__getRecords.fulfilled]: (state, action) => {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.isLoading = false; // 네트워크 요청이 끝났으니, false로 변경합니다.
       state.records = action.payload; // Store에 있는 records에 서버에서 가져온 records를 넣습니다.
     },
