@@ -30,7 +30,7 @@ function Home() {
   return (
     <div>
       <HomeContainer>
-        <HomeNavi onClick={() => navigate("/Write")}>영상 추천 </HomeNavi>
+        <HomeNavi onClick={() => navigate("/Write")}>추천하기 </HomeNavi>
         {/* <div>dd</div> */}
         <HomeNavi onClick={() => navigate("/RecommendList")}>
           추천 리스트
