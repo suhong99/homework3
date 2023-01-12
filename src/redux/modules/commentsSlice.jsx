@@ -5,7 +5,9 @@ export const __getCommentsThunk = createAsyncThunk(
   "GET_COMMENTS",
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get(`http://localhost:3001/comments`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_RECORDS}/comments`
+      );
       return thunkAPI.fulfillWithValue(data);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.code);
@@ -18,7 +20,7 @@ export const __getCommnetsByRecordId = createAsyncThunk(
   async (arg, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/comments?recordId=${arg}`
+        `${process.env.REACT_APP_RECORDS}/comments?recordId=${arg}`
       );
       return thunkAPI.fulfillWithValue(data);
     } catch (e) {
@@ -33,7 +35,7 @@ export const __deleteComment = createAsyncThunk(
     try {
       console.log(recordId, commentId);
       const data = await axios.delete(
-        `http://localhost:3001/comments/${commentId}`
+        `${process.env.REACT_APP_RECORDS}/${commentId}`
       );
       if (data.status === 200) {
         thunkAPI.dispatch(__getCommnetsByRecordId(recordId));
@@ -49,7 +51,7 @@ export const __updateComment = createAsyncThunk(
   "UPDATE_COMMENT",
   async (arg, thunkAPI) => {
     try {
-      axios.patch(`http://localhost:3001/comments/${arg.id}`, arg);
+      axios.patch(`${process.env.REACT_APP_RECORDS}/${arg.id}`, arg);
       return thunkAPI.fulfillWithValue(arg);
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
@@ -61,7 +63,10 @@ export const __addComment = createAsyncThunk(
   "ADD_COMMENT",
   async (arg, thunkAPI) => {
     try {
-      const { data } = await axios.post(`http://localhost:3001/comments`, arg);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_RECORDS}`,
+        arg
+      );
       return thunkAPI.fulfillWithValue(data);
     } catch (e) {
       return thunkAPI.rejectWithValue(e);

@@ -30,7 +30,7 @@ export const __getRecords = createAsyncThunk(
   "GET_RECORDS",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axios.get("http://localhost:3001/records"); //
+      const { data } = await axios.get(`${process.env.REACT_APP_RECORDS}`); //
       console.log(data);
       console.log("getRecords부분");
       return thunkAPI.fulfillWithValue(data);
@@ -45,7 +45,7 @@ export const __addRecord = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/records",
+        `${process.env.REACT_APP_RECORDS}/records`,
         payload
       ); //Write에서 보낸 값을 payload가 보냄
       return thunkAPI.fulfillWithValue(data);
@@ -58,7 +58,7 @@ export const __deleteRecord = createAsyncThunk(
   "DELETE_RECORD",
   async (payload, thunkAPI) => {
     try {
-      axios.delete(`http://localhost:3001/records/${payload}`);
+      axios.delete(`${process.env.REACT_APP_RECORDS}/records/${payload}`);
       return thunkAPI.fulfillWithValue(payload);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.code);
@@ -70,7 +70,10 @@ export const __updateRecord = createAsyncThunk(
   "UPDATE_RECORD",
   async (payload, thunkAPI) => {
     try {
-      axios.patch(`http://localhost:3001/records/${payload.id}`, payload);
+      axios.patch(
+        `${process.env.REACT_APP_RECORDS}/records/${payload.id}`,
+        payload
+      );
       return thunkAPI.fulfillWithValue(payload);
     } catch (e) {
       return thunkAPI.rejectWithValue(e.code);

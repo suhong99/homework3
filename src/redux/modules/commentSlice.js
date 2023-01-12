@@ -5,7 +5,9 @@ export const __getComment = createAsyncThunk(
   "GET_COMMENT",
   async (arg, thunkAPI) => {
     try {
-      const { data } = await axios.get(`http://localhost:3001/comments/${arg}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_RECORDS}/comments/${arg}`
+      );
       return thunkAPI.fulfillWithValue(data);
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
