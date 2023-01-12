@@ -18,7 +18,9 @@ export const __getRecord = createAsyncThunk(
   "GET_RECORD", //이거 이름이 같으면 안됨?
   async (payload, thunkAPI) => {
     try {
-      const { data } = await http.get(`/records/${payload}`); //
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_RECORDS}/records/${payload}`
+      ); //
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.code);
