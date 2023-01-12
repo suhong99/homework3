@@ -46,7 +46,7 @@ function RecommendList() {
       <div>추천목록입니다</div>
 
       <div>
-        {records.map((record) => (
+        {records?.map((record) => (
           <RecommendContainer key={record.id}>
             <div onClick={() => navigate(`/RecommendList/${record.id}`)}>
               <div>{record.id} </div> {/*todo : 나중에 지울듯*/}
